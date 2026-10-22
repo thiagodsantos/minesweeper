@@ -14,7 +14,16 @@ npm install
 npm run dev
 ```
 
-Open the local URL printed by Vite. The app starts with a 10 × 10 board and 15 mines. Use the field settings to change rows, columns, and mines; rows, columns, and mines must each be at least 10, and the mine count must be less than the number of squares.
+Open the local URL printed by Vite. The app starts with a 10 × 10 board and 15 mines. The board and settings panel are centered in the viewport; larger custom boards scroll within the field area.
+
+## Gameplay and settings
+
+- Each square counts mines in its eight surrounding squares. Revealing an empty square automatically opens the connected empty area and its numbered edge.
+- Revealing a mine ends the game and shows the minefield. The square that triggered the loss is highlighted; incorrect flags are marked separately.
+- Win by revealing every non-mine square; flagging every mine is not required.
+- Flags prevent covered squares from being revealed. The mine counter is the configured mine count minus the number of flags, so it can go below zero if you place too many.
+- Choose **New game** to regenerate a field with the current settings, or apply new settings to start with a different board.
+- Rows, columns, and mines must each be integers of at least 10. The mine count must also be less than the total number of squares.
 
 ## Commands
 
@@ -27,11 +36,11 @@ Open the local URL printed by Vite. The app starts with a 10 × 10 board and 15 
 
 ## Controls
 
-- Click or press Enter/Space on a covered square to reveal it.
-- Right-click or focus a square and press **F** to toggle a flag.
-- Choose **New game** to generate a fresh field with the current settings.
-- Use the language control to cycle between English, Spanish, and Portuguese (Brazil).
-- The board remains locked during the three-second start countdown.
+- Click or focus a covered square and press **Enter** or **Space** to reveal it.
+- Right-click a covered square or focus it and press **F** to toggle a flag.
+- The board is locked during the three-second countdown shown when the app opens, after **New game**, and after applying settings.
+- The timer begins on the first revealed square and stops when the game is won or lost.
+- Use the language control to cycle through English, Spanish, and Brazilian Portuguese (`pt-BR`). The document language is updated along with the interface.
 
 ## Project structure
 
@@ -52,7 +61,9 @@ src/
 └── shared/          # Reusable hooks and utilities
 ```
 
-Use the `@/` alias for internal source imports. It is configured in TypeScript and Vite.
+Use the `@/` alias for internal source imports. It is configured in TypeScript and Vite. Unit and component tests live beside their related game logic or UI components.
+
+The board uses short reveal animations for opened squares and a shake animation for the exploded mine. Animations respect the operating system's reduced-motion preference.
 
 ## Fonts and visual assets
 
