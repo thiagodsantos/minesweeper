@@ -1,0 +1,6 @@
+export { createGame } from '@/features/game/createGame'
+export { revealCell } from '@/features/game/revealCell'
+export { toggleFlag } from '@/features/game/toggleFlag'
+export { validateConfig } from '@/features/game/validateConfig'
+export type { ConfigErrors } from '@/features/game/configErrors'
+export type { Cell, GameConfig, GameState, GameStatus } from '@/features/game/types'
