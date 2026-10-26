@@ -2,6 +2,10 @@
 
 A responsive, classic Minesweeper game built with React, Vite, TypeScript, Tailwind CSS, and i18next. The interface takes inspiration from a nostalgic green arcade field and supports English, Spanish, and Brazilian Portuguese.
 
+<p align="center">
+  <img src="./usage.gif" alt="Minesweeper gameplay" width="800" />
+</p>
+
 ## Requirements
 
 - Node.js 20.19+ or 22.12+
